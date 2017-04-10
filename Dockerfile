@@ -6,6 +6,6 @@ RUN yum -y install sudo \
 	&& usermod -aG wheel $user \
 	&& echo $user:$password | chpasswd \
 	&& sed -i 's/%wheel\tALL=(ALL)\tALL/%wheel\tALL=(ALL)\tNOPASSWD:ALL/g' /etc/sudoers
-USER user
+USER $user
 CMD /bin/bash
 	
